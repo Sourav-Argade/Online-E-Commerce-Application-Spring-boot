@@ -17,11 +17,11 @@ public class CartController {
 	BuyService buysvc;
 	
 
-	@RequestMapping("cart")
+	@RequestMapping("cart")							//landing on cart jsp page 
 	public ModelAndView viewBuy(int billno) throws ProductUnvailable
 	{
 		ModelAndView mvc = new ModelAndView();
-		mvc.setViewName("cart1.jsp");
+		mvc.setViewName("cart1.jsp");					//view single buyed item by entering bill number
 		mvc.addObject("mode1", "single1");
 		
 		Buy b = buysvc.viewBuy(billno);
@@ -36,7 +36,7 @@ public class CartController {
 		
 	}
 	
-	@RequestMapping("cartall")
+	@RequestMapping("cartall")						// View all the buyed items in the list
 	public ModelAndView viewAllBuys() {
 		ModelAndView mvc = new ModelAndView();
 		mvc.setViewName("cart1.jsp");
