@@ -21,7 +21,7 @@
 			if (flag)
 			{
 				Buy b =(Buy) request.getAttribute("result");
-				out.println("<table border=1px><tr><th>BILL NO</th><th>PRODUCT ID</th><th>QUANTITY</th><th>BILL AMOUNT</th></tr>");
+				out.println("<table border=1px><tr><th>BILL NO</th><th>PRODUCT ID</th><th>QUANTITY</th><th>BILL AMOUNT</th></tr>");		//table to view single item
 				out.println("<tr><td>" + b.getBillno() + "</td><td>" + b.getPid()+ "</td><td>" + b.getQuantity()+"</td><td>" + b.getBillamt()+ "</td></tr></table>");
 			}
 			else 
@@ -32,15 +32,15 @@
 		else if(mode.equals("list1"))
 		{
 			ArrayList<Buy> blist = (ArrayList<Buy>) request.getAttribute("result");	
-			out.println("<table border=1px><tr><th>BILL NO</th><th>PRODUCT ID</th><th>QUANTITY</th><th>BILL AMOUNT</th></tr>");
+			out.println("<table border=1px><tr><th>BILL NO</th><th>PRODUCT ID</th><th>QUANTITY</th><th>BILL AMOUNT</th></tr>");		//table to view all the buyed item
 			for(Buy s:blist)
 			{
 				out.println("<tr><td>" + s.getBillno() + "</td><td>" + s.getPid()+ "</td><td>" + s.getQuantity()+"</td><td>" + s.getBillamt()+ "</td></tr>");
 			}
-			out.println("</table>");
+			out.println("</table>");   //closing tag of table after getting all the buyed items.
 		}
 	 %>
-	<p>${result}</p>
+	
 </center>>
 </body>
 </html>
