@@ -17,29 +17,25 @@ public class BuyService {
 	private BuyRepo buyrepo;
 	
 	public void buy(Buy b) {
-		buyrepo.save(b);
+		buyrepo.save(b);		//saving the buyed data
 		System.out.println("Product Buyed Successfully...");
 	}
 	
 	
 	public Buy viewBuy(int pid) throws ProductUnvailable
 	{
-		Buy b = buyrepo.findById(pid).orElse(null);
+		Buy b = buyrepo.findById(pid).orElse(null); 	 //viewing buyed item with product id
 		if(b!=null)
 		{
-			//System.out.println(b.toString());
-		//	return p.toString();
-			return b;
+			return b;				//if buyed item list in not null it will return data stored in b.
 		}else {
-			throw new ProductUnvailable();
-			//System.out.println("Product unavailable"); 
-			//return b;
+			throw new ProductUnvailable();		// or else throw product unavailable exception
 		}
 		
 	}
 	
 	public ArrayList<Buy> viewAllBuys() {
-		return (ArrayList<Buy>) buyrepo.findAll();
+		return (ArrayList<Buy>) buyrepo.findAll();	//view all the buyed items list
 	}
 	
 	public Buy receipt(int billno) throws ProductNotFoundException {
