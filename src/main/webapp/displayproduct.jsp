@@ -12,7 +12,7 @@
 <body>
 <h1 style="color:green">Online E-Commerce Application</h1>
 <h2 style="color:blue">VIEW PRODUCT</h2>
-
+<center>
 	<%
 	String mode = (String) request.getAttribute("mode");
 	if (mode.equals("single")) {
@@ -36,7 +36,7 @@
 		
 	}
 	%>
-	<p>${result}</p>
+</center>
 </body>
 </html>
 
