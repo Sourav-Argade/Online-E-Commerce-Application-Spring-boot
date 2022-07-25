@@ -20,34 +20,22 @@ public class BuyProductController {
 	@Autowired
 	ProductService prdsvc;
 	
-
-//	@Autowired
-//	BuyService buysvc;
-	
-	
-	@RequestMapping("index")
+	@RequestMapping("index")		
 	public String home() {
-		return "index.jsp";
+		return "index.jsp";		//go to the index jsp page 
 	}
-	@RequestMapping("admin")
+	@RequestMapping("admin")		//on the admin page
 	@ResponseBody
-	public String addPrd(Product p)
+	public String addPrd(Product p)		//add product data
 	{
 		return prdsvc.addProduct(p);
 	}
-/*	
-	@RequestMapping("viewpd")
-	@ResponseBody
-	public String viewPrd(int pid)
-	{
-		return prdsvc.viewProduct(pid);
-	}
-*/	
+	
 	@RequestMapping("viewpd")
 	public ModelAndView viewProduct(int pid) throws ProductUnvailable
 	{
 		ModelAndView mvc = new ModelAndView();
-		mvc.setViewName("displayproduct.jsp");
+		mvc.setViewName("displayproduct.jsp");			//display the single product 
 		mvc.addObject("mode", "single");
 		
 		Product p = prdsvc.viewProduct(pid);
@@ -66,7 +54,7 @@ public class BuyProductController {
 	@RequestMapping("viewallpd")
 	public ModelAndView viewAllProducts() {
 		ModelAndView mvc = new ModelAndView();
-		mvc.setViewName("displayproduct.jsp");
+		mvc.setViewName("displayproduct.jsp");			//display all the products
 		mvc.addObject("mode", "list");
 		mvc.addObject("result",prdsvc.viewAllProducts());
 		return mvc;
@@ -77,20 +65,20 @@ public class BuyProductController {
 	@ResponseBody
 	public String updatePrd(Product p)
 	{
-		return prdsvc.updateProduct(p);
+		return prdsvc.updateProduct(p);				//Update a product
 	}
 	
 	@RequestMapping("deletepd")
 	@ResponseBody
 	public String deletePrd(int pid) throws ProductUnvailable
 	{
-		return prdsvc.deleteProduct(pid);
+		return prdsvc.deleteProduct(pid);			//delete the product
 	}
 	
 	@RequestMapping("purchasepd")
 	@ResponseBody
 	public String purchasePrd(int pid, int quantity) throws InvalidProductException, StockUnavailable
 	{
-		return prdsvc.sellProduct(quantity,pid);
+		return prdsvc.sellProduct(quantity,pid);			//purchase a product by entering product id and quantity
 	}
 }
